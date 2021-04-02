@@ -53,6 +53,7 @@ export default baseMixins.extend<options>().extend({
     label: String,
     loading: Boolean,
     persistentHint: Boolean,
+    persistentPlaceholder: Boolean,
     prependIcon: String,
     value: null as any as PropType<any>,
   },

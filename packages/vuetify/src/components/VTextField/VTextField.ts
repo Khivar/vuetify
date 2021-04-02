@@ -160,7 +160,7 @@ export default baseMixins.extend<options>().extend({
       )
     },
     isLabelActive (): boolean {
-      return this.isDirty || dirtyTypes.includes(this.type)
+      return this.isDirty || dirtyTypes.includes(this.type) || this.persistentPlaceholder
     },
     isSingle (): boolean {
       return (
@@ -388,7 +388,7 @@ export default baseMixins.extend<options>().extend({
           autofocus: this.autofocus,
           disabled: this.isDisabled,
           id: this.computedId,
-          placeholder: this.isFocused || !this.hasLabel ? this.placeholder : undefined,
+          placeholder: this.isFocused || (this.persistentPlaceholder || !this.hasLabel) ? this.placeholder : undefined,
           readonly: this.isReadonly,
           type: this.type,
         },
